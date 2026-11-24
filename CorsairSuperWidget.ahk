@@ -626,11 +626,21 @@ FindExistingWindow(target, kw, isPwa) {
     }
 
     if (kw != "") {
+        ; Търсим по дума в заглавието, но НЕ в прозорци на Explorer и на браузърите: папка или раздел
+        ; със същата дума (напр. "Radio") иначе се вземат за прозореца на приложението.
         for hwnd in WinGetList() {
             if IsOverlayGui(hwnd)
                 continue
-            if ((WinGetStyle("ahk_id " hwnd) & 0x10000000) && InStr(WinGetTitle("ahk_id " hwnd), kw))
-                return hwnd
+            if !((WinGetStyle("ahk_id " hwnd) & 0x10000000) && InStr(WinGetTitle("ahk_id " hwnd), kw))
+                continue
+            try {
+                exeName := WinGetProcessName("ahk_id " hwnd)
+            } catch {
+                continue
+            }
+            if (exeName = "explorer.exe" || exeName = "firefox.exe" || exeName = "chrome.exe" || exeName = "msedge.exe")
+                continue
+            return hwnd
         }
     }
     return 0
