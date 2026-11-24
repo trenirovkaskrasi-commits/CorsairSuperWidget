@@ -10,7 +10,15 @@ One script that turns the **Corsair Xeneon Edge 14.5"** (2560×720), used as a r
 
 Everything is configured from a **Settings** window (right-click the tray icon) or from `settings.ini`.
 
-> Add a screenshot here, e.g. `docs/screenshot.png`.
+**`wide`**
+
+![wide design](docs/screenshot-wide.png)
+
+**`classic`**
+
+![classic design](docs/screenshot-classic.png)
+
+*App logos in the screenshots belong to their respective owners.*
 > The on-screen text (weekday/month names, weather descriptions, menus) is in Bulgarian; edit the strings in the script to translate.
 
 ## Two designs
