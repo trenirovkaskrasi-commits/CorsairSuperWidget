@@ -95,4 +95,4 @@ MsgBox(info)
 - [AutoHotkey](https://www.autohotkey.com/), метео данни от [Open-Meteo](https://open-meteo.com/) (виж техните условия).
 - Икони за времето: *Weather Touch* от *mohitg* (DeviantArt) – не са част от репото, провери лиценза им.
 - Логата на приложенията принадлежат на собствениците си.
-- Лиценз на кода: *(избери, напр. MIT)*.
+- Лиценз на кода: GPL-3.0 (виж файла [LICENSE](LICENSE)).
