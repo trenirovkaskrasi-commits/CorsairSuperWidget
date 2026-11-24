@@ -1,0 +1,6 @@
+# иконите не се качват (чужди търговски марки / авторски права)
+icons/*
+!icons/README.txt
+# лични копия на настройките
+settings.ini.bak
+settings.ini.tmp
