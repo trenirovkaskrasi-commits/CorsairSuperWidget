@@ -96,4 +96,4 @@ The line with width 2560 and height 720 gives `ManualX` and `ManualY`.
 - [AutoHotkey](https://www.autohotkey.com/), weather data from [Open-Meteo](https://open-meteo.com/) (see their terms).
 - Weather icons: *Weather Touch* by *mohitg* (DeviantArt) – not part of the repo, check their license.
 - App logos belong to their respective owners.
-- Code license: *(choose one, e.g. MIT)*.
+- Code license: GPL-3.0 (see the [LICENSE](LICENSE) file).
