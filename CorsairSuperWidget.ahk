@@ -34,7 +34,9 @@ if AutoDetectSmallScreen {
 ; ================= НАСТРОЙКИ: ВРЕМЕ И ЧАСОВНИК =================
 Lat := CfgCoord("Weather", "Lat", "42.6977")      ; София
 Lon := CfgCoord("Weather", "Lon", "23.3219")
-City := Cfg("Weather", "City", T("defaultCity"))
+City := Cfg("Weather", "City", "")
+if (City = "" || IsDefaultCity(City))
+    City := T("defaultCity")          ; Sofia в избрания език (променя се със смяната на езика)
 WeatherEveryMin := Max(1, CfgInt("Weather", "RefreshMinutes", 30))   ; на колко минути да обновява прогнозата
 WeatherPosX := screenX + 10
 WeatherPosY := screenY + 0
@@ -1181,7 +1183,7 @@ ShowSettingsGui(*) {
     ; --- Време ---
     tabs.UseTab(2)
     sg.Add("Text", "x30 y58 w210", T("lblCity"))
-    fld["City"] := sg.Add("Edit", "x245 y54 w260", Cfg("Weather", "City", T("defaultCity")))
+    fld["City"] := sg.Add("Edit", "x245 y54 w260", City)
     sg.Add("Text", "x30 y98 w210", T("lblLat"))
     fld["Lat"] := sg.Add("Edit", "x245 y94 w140", Cfg("Weather", "Lat", "42.6977"))
     sg.Add("Text", "x30 y138 w210", T("lblLon"))
@@ -1322,7 +1324,7 @@ SaveSettingsGui(fld, appFlds, *) {
     items.Push(["Paths", "LauncherIcons", Trim(fld["P_LauncherIcons"].Text)])
     items.Push(["Paths", "WeatherIcons", Trim(fld["P_WeatherIcons"].Text)])
     items.Push(["Paths", "ChromeApps", Trim(fld["P_ChromeApps"].Text)])
-    items.Push(["Weather", "City", Trim(fld["City"].Text)])
+    items.Push(["Weather", "City", IsDefaultCity(Trim(fld["City"].Text)) ? "" : Trim(fld["City"].Text)])
     items.Push(["Weather", "Lat", lat])
     items.Push(["Weather", "Lon", lon])
     items.Push(["Weather", "RefreshMinutes", Integer(refresh)])
@@ -1549,6 +1551,12 @@ T(key, args*) {
     for i, a in args
         s := StrReplace(s, "{" i "}", a)
     return s
+}
+
+; София под всички имена от езиците: така се превежда сама със смяната на езика (празно = също)
+IsDefaultCity(c) {
+    c := StrLower(Trim(c))
+    return (c = "софия" || c = "sofia" || c = "sofía" || c = "sófia")
 }
 
 ResolveLang(v) {
