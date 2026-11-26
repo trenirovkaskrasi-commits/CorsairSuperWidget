@@ -6,6 +6,7 @@ One script that turns the **Corsair Xeneon Edge 14.5"** (2560×720), used as a r
 
 - large clock, full date, current weather and a 5-day (`classic`) or 6-day (`wide`) forecast;
 - launcher with 10 large app icons;
+- interface in 7 languages (Bulgarian, Russian, English, French, Spanish, Italian, Portuguese);
 - bottom bar: **START**, CPU load and temperature, RAM, used space on two drives, GPU temperature, volume.
 
 Everything is configured from a **Settings** window (right-click the tray icon) or from `settings.ini`.
@@ -19,13 +20,13 @@ Everything is configured from a **Settings** window (right-click the tray icon) 
 ![classic design](docs/screenshot-classic.png)
 
 *App logos in the screenshots belong to their respective owners.*
-> The on-screen text (weekday/month names, weather descriptions, menus) is in Bulgarian; edit the strings in the script to translate.
+> The interface language can be switched in Settings → General → Language (Bulgarian, Russian, English, French, Spanish, Italian, Portuguese). `auto` follows the Windows language.
 
 ## Two designs
 
 | `Design=classic` | `Design=wide` |
 |---|---|
-| Clock and forecast on the left, 2 rows of 5 icons on the right | Top row: time, date, weather and 6-day forecast; the 10 icons in one row below |
+| Clock and forecast on the left, 2 rows of 5 icons on the right | Top part laid out as a table that follows the launcher columns: date and weekday (in capitals), clock, weather icon and temperature, and a 6-day forecast; the 10 icons in one row below |
 
 Switch it in Settings → "Общи" (General). The bottom bar is the same in both.
 
@@ -49,7 +50,7 @@ Switch it in Settings → "Общи" (General). The bottom bar is the same in bo
 
 | Section | What it controls |
 |---|---|
-| `[General]` | `Design` (classic/wide), `AutoDetectScreen` (finds the smallest monitor), `ManualX`/`ManualY` (Edge position when auto-detect is off) |
+| `[General]` | `Design` (classic/wide), `Language` (auto, bg, ru, en, fr, es, it, pt), `AutoDetectScreen` (finds the smallest monitor), `ManualX`/`ManualY` (Edge position when auto-detect is off) |
 | `[Paths]` | launcher icons folder, weather icons folder, Chrome apps (PWA) shortcuts folder; supports `%AppData%` and paths relative to the script |
 | `[Weather]` | city (label), `Lat`, `Lon`, `RefreshMinutes` |
 | `[Bar]` | `Drive1`, `Drive2`, `StrictTempLabels` |
@@ -96,4 +97,4 @@ The line with width 2560 and height 720 gives `ManualX` and `ManualY`.
 - [AutoHotkey](https://www.autohotkey.com/), weather data from [Open-Meteo](https://open-meteo.com/) (see their terms).
 - Weather icons: *Weather Touch* by *mohitg* (DeviantArt) – not part of the repo, check their license.
 - App logos belong to their respective owners.
-- Code license: GPL-3.0 (see the [LICENSE](LICENSE) file).
+- Code license: *(choose one, e.g. MIT)*.
